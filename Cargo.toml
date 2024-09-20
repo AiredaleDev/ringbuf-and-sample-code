@@ -1,0 +1,7 @@
+[package]
+name = "borrow_checker_demo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+nix = { version = "0.29.0", features = ["mman", "fs"] }
