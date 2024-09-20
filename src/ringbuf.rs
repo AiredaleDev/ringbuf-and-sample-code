@@ -1,3 +1,9 @@
+//! A (multi)page-sized queue of bytes. Maps two contiguous pages in the virtual address space to
+//! one physical page in the physical address space, allow the MMU to perform the wrapping for us
+//! and allowing the compiler to generate much faster reads and writes using `memcpy` primitives.
+//!
+//! Correct me if I'm wrong, but I think this primarily means vectorized copies.
+
 use nix::{
     sys::{
         memfd::{memfd_create, MemFdCreateFlag},
